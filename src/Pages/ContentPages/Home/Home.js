@@ -6,14 +6,14 @@ import {showMessage} from 'react-native-flash-message';
 import database from '@react-native-firebase/database';
 
 import Button from '../../../components/Button/Button';
-
 import styles from './Home.style';
+import ChooseModal from '../../../components/modals/ChooseModal/ChooseModal';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [userInfo, setUserInfo] = useState();
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
-    //It pulls the user's photo data from the database and puts it into the photos state.
     const user = auth().currentUser;
     const userId = user.uid;
     database()
@@ -51,6 +51,10 @@ const Home = () => {
     });
   }
 
+  function handleStartChallenge() {
+    setModalVisible(!modalVisible);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -74,11 +78,19 @@ const Home = () => {
               />
             )}
           </TouchableOpacity>
-          <Text style={styles.username}>{userInfo.username}</Text>
+          {userInfo && userInfo.username ? (
+            <Text style={styles.username}>{userInfo.username}</Text>
+          ) : (
+            <Text style={styles.username}> </Text>
+          )}
         </View>
         <Text style={styles.ready_text}>Are you ready for the challenge?</Text>
         <View style={styles.button_container}>
-          <Button text="Start Challenge" theme="secondary" />
+          <Button
+            text="Start Challenge"
+            theme="secondary"
+            onPress={handleStartChallenge}
+          />
         </View>
         <Button text="Leaderboard" theme="primary" />
         <View style={styles.logout_button}>
@@ -89,6 +101,7 @@ const Home = () => {
           />
         </View>
       </View>
+      <ChooseModal isVisible={modalVisible} onClose={handleStartChallenge} />
     </View>
   );
 };

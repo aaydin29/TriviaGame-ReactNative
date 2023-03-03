@@ -10,6 +10,7 @@ import Login from './Pages/AuthPages/Login/Login';
 import Register from './Pages/AuthPages/Register/Register';
 
 import Home from './Pages/ContentPages/Home/Home';
+import QuestionPage from './Pages/ContentPages/QuestionPage/QuestionPage';
 
 function AuthPages() {
   return (
@@ -28,6 +29,7 @@ function ContentPages() {
         component={Home}
         options={{headerShown: false}}
       />
+      <Stack.Screen name="QuestionPage" component={QuestionPage} />
     </Stack.Navigator>
   );
 }
