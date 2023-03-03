@@ -46,6 +46,7 @@ export default {
       backgroundColor: colors.darkblue,
       borderWidth: 1,
       borderColor: colors.orange,
+      padding: 12,
     },
     button_text: {
       ...base_style.button_text,

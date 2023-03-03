@@ -9,13 +9,11 @@ export default StyleSheet.create({
     backgroundColor: colors.darkblue,
   },
   header: {
-    padding: 15,
+    padding: 10,
     backgroundColor: colors.darkblue,
     borderBottomWidth: 2,
     borderColor: colors.orange,
-    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
   },
   header_title: {
     color: 'white',
@@ -62,5 +60,8 @@ export default StyleSheet.create({
   button_container: {
     marginTop: 30,
     marginBottom: 10,
+  },
+  logout_button: {
+    marginTop: 10,
   },
 });
