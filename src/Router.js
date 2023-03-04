@@ -29,7 +29,11 @@ function ContentPages() {
         component={Home}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="QuestionPage" component={QuestionPage} />
+      <Stack.Screen
+        name="QuestionPage"
+        component={QuestionPage}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }

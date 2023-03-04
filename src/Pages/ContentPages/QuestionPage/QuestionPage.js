@@ -1,12 +1,30 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
+import QuestionCard from '../../../components/cards/QuestionCard/QuestionCard';
 
-import styles from './QuestionPage.style';
+const QuestionPage = ({route}) => {
+  const {questions} = route.params;
+  // console.log(questions);
 
-const QuestionPage = () => {
+  const renderItem = ({item, index}) => {
+    return (
+      <QuestionCard
+        item={item}
+        question={item.question}
+        correct_answer={item.correct_answer}
+        incorrect_answers={item.incorrect_answers}
+        questionNumber={index + 1}
+      />
+    );
+  };
+
   return (
     <View>
-      <Text>QuestionPage</Text>
+      <FlatList
+        data={questions}
+        renderItem={renderItem}
+        keyExtractor={(item, index) => index.toString()}
+      />
     </View>
   );
 };
