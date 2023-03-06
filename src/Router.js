@@ -3,10 +3,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import FlashMessage from 'react-native-flash-message';
 import auth from '@react-native-firebase/auth';
-import {Provider} from 'react-redux';
 
 const Stack = createStackNavigator();
-import store from './components/redux/store';
 
 import Login from './Pages/AuthPages/Login/Login';
 import Register from './Pages/AuthPages/Register/Register';
@@ -56,18 +54,16 @@ const Router = () => {
   }, []);
 
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-          {!userSession ? (
-            <Stack.Screen name="AuthPages" component={AuthPages} />
-          ) : (
-            <Stack.Screen name="ContentPages" component={ContentPages} />
-          )}
-        </Stack.Navigator>
-        <FlashMessage position="top" />
-      </NavigationContainer>
-    </Provider>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        {!userSession ? (
+          <Stack.Screen name="AuthPages" component={AuthPages} />
+        ) : (
+          <Stack.Screen name="ContentPages" component={ContentPages} />
+        )}
+      </Stack.Navigator>
+      <FlashMessage position="top" />
+    </NavigationContainer>
   );
 };
 

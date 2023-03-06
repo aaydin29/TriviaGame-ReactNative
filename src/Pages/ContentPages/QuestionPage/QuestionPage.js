@@ -25,15 +25,15 @@ const QuestionPage = ({route, navigation}) => {
       setTimeLeft(timeLeft - 1);
       if (timeLeft === 0) {
         setTimeLeft(0);
-        navigation.navigate('Results', {numCorrectAnswers});
+        navigation.navigate('Results', {numCorrectAnswers, selectedCategory});
       }
       return;
     }, 1000);
     return () => clearInterval(timer);
-  }, [navigation, numCorrectAnswers, timeLeft]);
+  }, [navigation, numCorrectAnswers, selectedCategory, timeLeft]);
 
   function handleSubmit() {
-    navigation.navigate('Results', {numCorrectAnswers});
+    navigation.navigate('Results', {numCorrectAnswers, selectedCategory});
   }
 
   const renderItem = ({item, index}) => {
