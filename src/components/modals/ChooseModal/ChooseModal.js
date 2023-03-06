@@ -30,7 +30,10 @@ const ChooseModal = ({isVisible, onClose, onSend}) => {
       .then(response => response.json())
       .then(data => {
         setQuestions(data.results);
-        navigation.navigate('QuestionPage', {questions: data.results});
+        navigation.navigate('QuestionPage', {
+          questions: data.results,
+          category,
+        });
       })
       .catch(error => console.error(error));
   };

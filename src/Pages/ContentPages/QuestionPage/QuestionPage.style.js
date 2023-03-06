@@ -1,4 +1,33 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../../styles/colors';
 
-export default StyleSheet.create({});
+export default StyleSheet.create({
+  container: {
+    backgroundColor: colors.lightblue,
+  },
+  header_container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    backgroundColor: colors.darkblue,
+    padding: 15,
+  },
+  category: {
+    color: 'white',
+    fontSize: 15,
+  },
+  second: {
+    color: 'white',
+    fontSize: 15,
+  },
+  submit: {
+    color: colors.lightblue,
+    fontSize: 15,
+    borderWidth: 1,
+    borderColor: colors.orange,
+    borderRadius: 7,
+    padding: 5,
+    paddingHorizontal: 10,
+    marginRight: -5,
+  },
+});
