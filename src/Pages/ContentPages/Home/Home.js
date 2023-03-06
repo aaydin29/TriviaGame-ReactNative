@@ -8,6 +8,7 @@ import database from '@react-native-firebase/database';
 import Button from '../../../components/Button/Button';
 import styles from './Home.style';
 import ChooseModal from '../../../components/modals/ChooseModal/ChooseModal';
+import Leaderboard from '../Leaderboard/Leaderboard';
 
 const Home = ({navigation}) => {
   const [userInfo, setUserInfo] = useState();
@@ -55,6 +56,10 @@ const Home = ({navigation}) => {
     setModalVisible(!modalVisible);
   }
 
+  const handleLeaderboard = () => {
+    navigation.navigate('Leaderboard');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -92,7 +97,11 @@ const Home = ({navigation}) => {
             onPress={handleStartChallenge}
           />
         </View>
-        <Button text="Leaderboard" theme="primary" />
+        <Button
+          onPress={handleLeaderboard}
+          text="Leaderboard"
+          theme="primary"
+        />
         <View style={styles.logout_button}>
           <Button
             text="Logout"

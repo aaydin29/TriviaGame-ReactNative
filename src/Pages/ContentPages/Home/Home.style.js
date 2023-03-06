@@ -55,7 +55,7 @@ export default StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 18,
-    marginTop: 50,
+    marginTop: 40,
   },
   button_container: {
     marginTop: 30,

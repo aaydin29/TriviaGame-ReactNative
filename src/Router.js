@@ -12,6 +12,7 @@ import Register from './Pages/AuthPages/Register/Register';
 import Home from './Pages/ContentPages/Home/Home';
 import QuestionPage from './Pages/ContentPages/QuestionPage/QuestionPage';
 import Results from './Pages/ContentPages/Results/Results';
+import Leaderboard from './Pages/ContentPages/Leaderboard/Leaderboard';
 
 function AuthPages() {
   return (
@@ -40,6 +41,7 @@ function ContentPages() {
         component={Results}
         // options={{headerShown: false}}
       />
+      <Stack.Screen name="Leaderboard" component={Leaderboard} />
     </Stack.Navigator>
   );
 }

@@ -19,7 +19,7 @@ const Results = ({route}) => {
     scoreRef.push(newScore);
     showMessage({
       message: 'Score shared!',
-      type: 'succes',
+      type: 'success',
     });
   };
 
