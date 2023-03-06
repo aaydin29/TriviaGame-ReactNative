@@ -1,5 +1,4 @@
 export const categories = [
-  {value: 'any', label: 'Any category'},
   {value: '9', label: 'General Knowledge'},
   {value: '10', label: 'Books'},
   {value: '11', label: 'Film'},
@@ -27,14 +26,12 @@ export const categories = [
 ];
 
 export const difficulties = [
-  {value: 'any', label: 'Any Difficulty'},
   {value: 'easy', label: 'Easy'},
   {value: 'medium', label: 'Medium'},
   {value: 'hard', label: 'Hard'},
 ];
 
 export const questionTypes = [
-  {value: 'ayn', label: 'Any type'},
   {value: 'multiple', label: 'Multiple Choice'},
   {value: 'boolean', label: 'True / False'},
 ];

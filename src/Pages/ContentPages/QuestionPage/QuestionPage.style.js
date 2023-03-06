@@ -3,7 +3,7 @@ import colors from '../../../styles/colors';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: colors.lightblue,
+    backgroundColor: 'gray',
   },
   header_container: {
     flexDirection: 'row',

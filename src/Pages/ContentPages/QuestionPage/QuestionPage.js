@@ -4,16 +4,37 @@ import QuestionCard from '../../../components/cards/QuestionCard/QuestionCard';
 
 import styles from './QuestionPage.style';
 
-const QuestionPage = ({route}) => {
+const QuestionPage = ({route, navigation}) => {
   const {questions, category: selectedCategory} = route.params;
-  const [countdown, setCountdown] = useState(100);
+  const [timeLeft, setTimeLeft] = useState(100);
+  const [correctAnswers, setCorrectAnswers] = useState([]);
+  const [numCorrectAnswers, setNumCorrectAnswers] = useState(0);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
+  const handleSelectAnswer = answer => {
+    const currentQuestion = questions[currentQuestionIndex];
+    if (answer === currentQuestion.correct_answer) {
+      setCorrectAnswers([...correctAnswers, answer]);
+      setNumCorrectAnswers(numCorrectAnswers + 1);
+    }
+    setCurrentQuestionIndex(currentQuestionIndex + 1);
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCountdown(countdown => countdown - 1);
+    const timer = setInterval(() => {
+      setTimeLeft(timeLeft - 1);
+      if (timeLeft === 0) {
+        setTimeLeft(0);
+        navigation.navigate('Results', {numCorrectAnswers});
+      }
+      return;
     }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(timer);
+  }, [navigation, numCorrectAnswers, timeLeft]);
+
+  function handleSubmit() {
+    navigation.navigate('Results', {numCorrectAnswers});
+  }
 
   const renderItem = ({item, index}) => {
     return (
@@ -23,6 +44,7 @@ const QuestionPage = ({route}) => {
         correct_answer={item.correct_answer}
         incorrect_answers={item.incorrect_answers}
         questionNumber={index + 1}
+        onSelectAnswer={handleSelectAnswer}
       />
     );
   };
@@ -31,8 +53,8 @@ const QuestionPage = ({route}) => {
     <View style={styles.container}>
       <View style={styles.header_container}>
         <Text style={styles.category}>Category : {selectedCategory.label}</Text>
-        <Text style={styles.second}>{countdown}</Text>
-        <TouchableOpacity>
+        <Text style={styles.second}>{timeLeft}</Text>
+        <TouchableOpacity onPress={handleSubmit}>
           <Text style={styles.submit}>Submit</Text>
         </TouchableOpacity>
       </View>

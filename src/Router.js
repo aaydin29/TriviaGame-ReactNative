@@ -40,7 +40,7 @@ function ContentPages() {
       <Stack.Screen
         name="Results"
         component={Results}
-        options={{headerShown: false}}
+        // options={{headerShown: false}}
       />
     </Stack.Navigator>
   );

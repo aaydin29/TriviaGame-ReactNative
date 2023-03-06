@@ -1,10 +1,12 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const Results = () => {
+const Results = ({route}) => {
+  const {numCorrectAnswers} = route.params;
+
   return (
     <View>
-      <Text>result</Text>
+      <Text>{numCorrectAnswers}</Text>
     </View>
   );
 };
