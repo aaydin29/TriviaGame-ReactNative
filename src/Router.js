@@ -39,9 +39,13 @@ function ContentPages() {
       <Stack.Screen
         name="Results"
         component={Results}
-        // options={{headerShown: false}}
+        options={{headerShown: false}}
       />
-      <Stack.Screen name="Leaderboard" component={Leaderboard} />
+      <Stack.Screen
+        name="Leaderboard"
+        component={Leaderboard}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }

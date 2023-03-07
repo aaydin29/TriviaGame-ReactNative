@@ -4,7 +4,7 @@ import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
 import {showMessage} from 'react-native-flash-message';
 
-const Results = ({route}) => {
+const Results = ({route, navigation}) => {
   const {numCorrectAnswers, selectedCategory} = route.params;
 
   const score = numCorrectAnswers * 10;
@@ -23,12 +23,26 @@ const Results = ({route}) => {
     });
   };
 
+  function handleLeaderboard() {
+    navigation.navigate('Leaderboard');
+  }
+
+  function handleBackHome() {
+    navigation.navigate('Home');
+  }
+
   return (
     <View>
       <Text>category: {selectedCategory.label}</Text>
       <Text>{score}</Text>
       <TouchableOpacity onPress={handleShareScore}>
         <Text>Share Score</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handleLeaderboard}>
+        <Text>Leaderboard</Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text onPress={handleBackHome}>Back to Home</Text>
       </TouchableOpacity>
     </View>
   );
