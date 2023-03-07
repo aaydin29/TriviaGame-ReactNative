@@ -7,6 +7,8 @@ const QuestionCard = ({item, questionNumber, onSelectAnswer}) => {
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(-1);
   const [answers, setAnswers] = useState([]);
 
+  const answerPrefixes = ['A) ', 'B) ', 'C) ', 'D) '];
+
   useEffect(() => {
     const shuffledAnswers = [
       item.correct_answer,
@@ -41,7 +43,7 @@ const QuestionCard = ({item, questionNumber, onSelectAnswer}) => {
                 styles.answers_text,
                 selectedAnswerIndex === index && selectedAnswerStyle,
               ]}>
-              {decodeURIComponent(answer)}
+              {answerPrefixes[index]} {decodeURIComponent(answer)}
             </Text>
           </TouchableOpacity>
         ))}

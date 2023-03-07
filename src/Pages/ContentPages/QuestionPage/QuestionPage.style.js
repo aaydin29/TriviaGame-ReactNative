@@ -4,6 +4,8 @@ import colors from '../../../styles/colors';
 export default StyleSheet.create({
   container: {
     backgroundColor: 'gray',
+    flex: 1,
+    paddingBottom: 70,
   },
   header_container: {
     flexDirection: 'row',
@@ -15,6 +17,7 @@ export default StyleSheet.create({
   category: {
     color: 'white',
     fontSize: 15,
+    marginLeft: -10,
   },
   second: {
     color: 'white',
