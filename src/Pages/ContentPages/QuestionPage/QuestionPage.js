@@ -6,7 +6,7 @@ import styles from './QuestionPage.style';
 
 const QuestionPage = ({route, navigation}) => {
   const {questions, category: selectedCategory} = route.params;
-  const [timeLeft, setTimeLeft] = useState(1000);
+  const [timeLeft, setTimeLeft] = useState(100);
   const [correctAnswers, setCorrectAnswers] = useState([]);
   const [numCorrectAnswers, setNumCorrectAnswers] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
