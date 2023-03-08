@@ -10,7 +10,6 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: 'white',
     padding: 15,
-    // marginBottom: 50,
   },
   header_text: {
     color: '#eceff1',
@@ -47,8 +46,8 @@ export default StyleSheet.create({
     color: '#dd2c00',
     fontWeight: '400',
     fontSize: 20,
-    marginTop: 50,
-    marginBottom: -30,
+    marginTop: 40,
+    marginBottom: 20,
   },
   lottie_container: {
     flex: 1,

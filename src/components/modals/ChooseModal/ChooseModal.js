@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import Modal from 'react-native-modal';
 import {Dropdown} from 'react-native-element-dropdown';

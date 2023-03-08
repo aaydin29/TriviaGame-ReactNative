@@ -8,9 +8,7 @@ export default StyleSheet.create({
     borderRadius: 7,
     backgroundColor: colors.darkblue,
   },
-  question_container: {
-    // borderBottomWidth: 1,
-  },
+  question_container: {},
   question_text: {
     margin: 15,
     textAlign: 'center',

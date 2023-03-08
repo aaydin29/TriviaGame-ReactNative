@@ -7,7 +7,7 @@ import Button from '../../../components/Button/Button';
 
 const Leaderboard = ({navigation}) => {
   function handleBackToHome() {
-    navigation.goBack();
+    navigation.navigate('Home');
   }
 
   return (

@@ -8,7 +8,6 @@ import database from '@react-native-firebase/database';
 import Button from '../../../components/Button/Button';
 import styles from './Home.style';
 import ChooseModal from '../../../components/modals/ChooseModal/ChooseModal';
-import Leaderboard from '../Leaderboard/Leaderboard';
 
 const Home = ({navigation}) => {
   const [userInfo, setUserInfo] = useState();
