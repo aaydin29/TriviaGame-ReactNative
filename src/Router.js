@@ -54,6 +54,7 @@ const Router = () => {
   const [userSession, setUserSession] = useState();
 
   useEffect(() => {
+    // Function that checks to redirect to the Home page if the user has not logged out of their account.
     auth().onAuthStateChanged(user => {
       setUserSession(user);
     });

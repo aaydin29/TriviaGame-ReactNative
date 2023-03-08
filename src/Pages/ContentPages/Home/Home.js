@@ -14,6 +14,7 @@ const Home = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
+    // It pulls user data from database and adds it to userInfo state.
     const user = auth().currentUser;
     const userId = user.uid;
     database()
@@ -24,6 +25,7 @@ const Home = ({navigation}) => {
   }, []);
 
   function handleAddPhoto() {
+    // With React Native Image Picker, it allows the user to upload a photo from their gallery, then the uploaded photo is sent to the database.
     const user = auth().currentUser;
     const userId = user.uid;
     const options = {

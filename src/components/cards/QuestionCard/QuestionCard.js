@@ -10,6 +10,7 @@ const QuestionCard = ({item, questionNumber, onSelectAnswer}) => {
   const answerPrefixes = ['A) ', 'B) ', 'C) ', 'D) '];
 
   useEffect(() => {
+    // It mixes the options so that the correct answers are not always on the same line.
     const shuffledAnswers = [
       item.correct_answer,
       ...item.incorrect_answers,
@@ -18,6 +19,7 @@ const QuestionCard = ({item, questionNumber, onSelectAnswer}) => {
   }, [item.correct_answer, item.incorrect_answers]);
 
   const selectedAnswerStyle =
+    // Changes the color of the selected answer depending on whether it is true or false.
     selectedAnswerIndex !== -1 &&
     (item.correct_answer === answers[selectedAnswerIndex]
       ? styles.correct_answer

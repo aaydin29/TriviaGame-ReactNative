@@ -19,6 +19,7 @@ const Login = ({navigation}) => {
   }
 
   async function handleFormSubmit(formValues) {
+    // It allows you to log in with the registered e-mail and password.
     try {
       await auth().signInWithEmailAndPassword(
         formValues.email,

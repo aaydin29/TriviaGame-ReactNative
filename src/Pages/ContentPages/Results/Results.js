@@ -14,6 +14,7 @@ const Results = ({route, navigation}) => {
   const score = numCorrectAnswers * 10;
 
   const handleShareScore = () => {
+    // Function that performs the score sharing.
     const user = auth().currentUser;
     const scoreRef = database().ref(`/users/${user.uid}/scores`);
     const newScore = {

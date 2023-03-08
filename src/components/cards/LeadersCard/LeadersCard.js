@@ -8,6 +8,7 @@ const LeadersCard = () => {
   const [userResults, setUserResults] = useState([]);
 
   useEffect(() => {
+    // It pulls the users data from the database. It also sorts the scores from highest to lowest.
     database()
       .ref('users/')
       .on('value', snapshot => {

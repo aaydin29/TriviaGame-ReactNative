@@ -1,3 +1,5 @@
+// Data for element dropdown.
+
 export const categories = [
   {value: '9', label: 'General Knowledge'},
   {value: '10', label: 'Books'},

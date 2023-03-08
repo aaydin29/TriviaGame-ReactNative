@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import Modal from 'react-native-modal';
 import {Dropdown} from 'react-native-element-dropdown';
 import {useNavigation} from '@react-navigation/native';
+import {showMessage} from 'react-native-flash-message';
 
 import styles from './ChooseModal.style';
 import {categories, difficulties, questionTypes} from '../../../ModalData';
@@ -16,10 +17,10 @@ const ChooseModal = ({isVisible, onClose, onSend}) => {
   const navigation = useNavigation();
 
   const getQuestions = () => {
+    // It pulls data from the API according to the options selected by the user.
     if (!category || !difficulty || !questionType) {
       return;
     }
-
     const categoryID = category.value;
     const difficultyLevel = difficulty.value;
     const type = questionType.value;
@@ -35,7 +36,12 @@ const ChooseModal = ({isVisible, onClose, onSend}) => {
           category,
         });
       })
-      .catch(error => console.error(error));
+      .catch(error =>
+        showMessage({
+          message: 'Something went wrong!',
+          type: 'danger',
+        }),
+      );
   };
 
   return (

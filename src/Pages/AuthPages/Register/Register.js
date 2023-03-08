@@ -23,6 +23,7 @@ const Register = ({navigation}) => {
 
   async function handleFormSubmit(formValues) {
     if (formValues.password !== formValues.repassword) {
+      // Checks if the passwords match.
       showMessage({
         message: 'Passwords not match!',
         type: 'danger',
@@ -37,10 +38,12 @@ const Register = ({navigation}) => {
     } else {
       try {
         await auth().createUserWithEmailAndPassword(
+          // It allows the user to register with e-mail and password.
           formValues.email,
           formValues.repassword,
         );
         await database().ref(`users/${auth().currentUser.uid}`).set({
+          // It sends the username entered during registration to the database.
           username: formValues.username,
         });
         showMessage({

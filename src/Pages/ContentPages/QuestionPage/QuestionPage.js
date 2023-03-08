@@ -12,6 +12,7 @@ const QuestionPage = ({route, navigation}) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   const handleSelectAnswer = answer => {
+    // It checks if the user's selected answer is correct and updates the numCorrectAnswer state if it is.
     const currentQuestion = questions[currentQuestionIndex];
     if (answer === currentQuestion.correct_answer) {
       setCorrectAnswers([...correctAnswers, answer]);
@@ -21,6 +22,7 @@ const QuestionPage = ({route, navigation}) => {
   };
 
   useEffect(() => {
+    // It starts a countdown and when the time is up, the user is redirected to the results page with the number of correct answers and the quiz category.
     const timer = setInterval(() => {
       setTimeLeft(timeLeft - 1);
       if (timeLeft === 0) {
